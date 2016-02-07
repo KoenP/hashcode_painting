@@ -21,4 +21,7 @@ class AI:
 
     def solve(self, picture):
         actions = self.lineSolve(picture)
+
+        # Make squares from the lines
+
         return actions
