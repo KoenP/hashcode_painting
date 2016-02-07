@@ -2,10 +2,10 @@ class Picture:
     def __init__(self, grid):
         self.grid = grid
 
-    def getWidth(self):
+    def getColumnCount(self):
         return len(self.grid[0])
 
-    def getHeight(self):
+    def getRowCount(self):
         return len(self.grid)
 
     def getCell(self, r, c):
@@ -15,9 +15,9 @@ class Picture:
         self.grid[r][c] = value
 
     def compare(self, otherPic):
-        return all([otherPic.grid[r][c] == self.grid[r][c] 
-                        for c in range(self.getWidth())
-                        for r in range(self.getHeight())])
+        return all([otherPic.grid[r][c] == self.grid[r][c]
+                    for c in range(self.getColumnCount())
+                    for r in range(self.getRowCount())])
 
     @staticmethod
     def makeEmptyPicture(nRows, nColumns):

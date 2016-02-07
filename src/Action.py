@@ -19,7 +19,7 @@ class DrawSquare(Action):
 
     def perform(self, picture):
         start = (self.column - self.size, self.row - self.size)
-
+        picture.setCell(self.row, self.column, True)
         # Row
         for i in range(self.size):
             # Column
