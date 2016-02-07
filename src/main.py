@@ -1,6 +1,7 @@
 from Input import *
 from Picture import *
 from Action import *
+from Ai import *
 import sys
 
 def simpleSolve(picture):
@@ -16,6 +17,7 @@ def evalPicture(actions, picture):
     emptyPicture = Picture.makeEmptyPicture(picture.getRowCount(), picture.getColumnCount())
     for action in actions:
         action.perform(emptyPicture)
+    print(str(emptyPicture))
 
     # check if pictures are the same
     return picture.compare(emptyPicture)
@@ -32,13 +34,17 @@ def writeToFile(actions, fileName):
 
 # read input
 args = sys.argv
-picture = readInputFile(args[1])
-fileName = args[1].split('.')[0]
-# simple solve
-simple_actions = simpleSolve(picture)
+for arg in args[1:]:
+    picture = readInputFile(arg)
+    fileName = arg.split('.')[0]
+    # simple solve
+    #simple_actions = simpleSolve(picture)
 
-# eval function
-print(evalPicture(simple_actions, picture))
+    # AI solve
+    simple_actions = AI().solve(picture)
 
-# output function
-writeToFile(simple_actions,fileName)
+    # eval function
+    print(evalPicture(simple_actions, picture))
+
+    # output function
+    writeToFile(simple_actions,fileName)

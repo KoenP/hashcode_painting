@@ -42,13 +42,13 @@ class DrawLine(Action):
 
         if(self.r1 == self.r2):
             start = (self.r1, min(self.c1, self.c2))
-            for i in range( abs(self.c1 - self.c2) ):
+            for i in range( abs(self.c1 - self.c2) + 1 ):
                 picture.setCell(start[0], start[1] + i, True)
 
 
         elif(self.c1 == self.c2):
             start = (min(self.r1, self.r2), self.c1)
-            for i in range( abs(self.r1 - self.r2) ):
+            for i in range( abs(self.r1 - self.r2) + 1):
                 picture.setCell(start[0] + i, start[1], True)
 
         else:
