@@ -18,15 +18,3 @@ class Picture:
         return all([otherPic.grid[r][c] == self.grid[r][c] 
                         for c in range(self.getWidth())
                         for r in range(self.getHeight())])
-
-
-def parseInput(s):
-    lines = s.split('\n')
-    [nRows, nColumns] = [int(i) for i in lines[0].split()]
-
-    grid = []
-    for i in range(nRows):
-        grid.append([True if j == '#' else False for j in lines[i+1]
-                                                 if j == '#' or j == '.'])
-
-    return Picture(grid)
