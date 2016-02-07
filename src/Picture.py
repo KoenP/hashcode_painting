@@ -18,3 +18,7 @@ class Picture:
         return all([otherPic.grid[r][c] == self.grid[r][c] 
                         for c in range(self.getWidth())
                         for r in range(self.getHeight())])
+
+    @staticmethod
+    def makeEmptyPicture(nRows, nColumns):
+        return Picture([[False] * nColumns] * nRows)
