@@ -16,8 +16,7 @@ def evalPicture(actions, picture):
     emptyPicture = Picture.makeEmptyPicture(picture.getRowCount(), picture.getColumnCount())
     for action in actions:
         action.perform(emptyPicture)
-
-    print(emptyPicture.grid)
+        print(str(emptyPicture))
     # check if pictures are the same
     return picture.compare(emptyPicture)
 

@@ -18,13 +18,13 @@ class DrawSquare(Action):
         return "PAINT_SQUARE " + str(self.row) + " " + str(self.column) + " " + str(self.size)
 
     def perform(self, picture):
-        start = (self.column - self.size, self.row - self.size)
-        picture.setCell(self.row, self.column, True)
+        start = (self.row - self.size, self.column - self.size)
+
         # Row
-        for i in range(self.size):
+        for i in range(2*self.size + 1):
             # Column
-            for j in range(self.size):
-                picture.setCell(start[0] + j, start[1] + i, True)
+            for j in range(2 * self.size + 1):
+                picture.setCell(start[0] + i, start[1] + j, True)
 
 class DrawLine(Action):
 
