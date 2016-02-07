@@ -1,0 +1,32 @@
+Picture = [[Bool]]
+
+Action = Square r c s
+       | Line r1 c1 r2 c2
+       | Erase r c
+
+eval :: ([Action], Picture) -> Bool
+
+solve :: Picture -> [Action]
+
+simplesolve :: Picture -> [Action]
+
+Action.perform :: Picture -> Picture
+
+
+class Picture:
+    getWidth
+    getHeight
+    getCell
+    setCell
+    compare
+
+class Action:
+    toString (abstract)
+    perform(Picture) (abstract)
+
+class DrawSquare(Action):
+    ...
+class DrawLine(Action):
+    ...
+class Erase(Action):
+    ...
