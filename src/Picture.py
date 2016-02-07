@@ -29,4 +29,4 @@ class Picture:
 
     @staticmethod
     def makeEmptyPicture(nRows, nColumns):
-        return Picture([[False] * nColumns] * nRows)
+        return Picture([[False for c in range(nColumns)] for r in range(nRows)])
