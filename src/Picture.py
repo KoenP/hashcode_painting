@@ -19,6 +19,14 @@ class Picture:
                     for c in range(self.getColumnCount())
                     for r in range(self.getRowCount())])
 
+    def __str__(self):
+        s = ""
+        for r in range(self.getRowCount()):
+            for c in range(self.getColumnCount()):
+                s += '#' if self.grid[r][c] else '.'
+            s += '\n'
+        return s
+
     @staticmethod
     def makeEmptyPicture(nRows, nColumns):
         return Picture([[False] * nColumns] * nRows)
