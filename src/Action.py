@@ -41,15 +41,15 @@ class DrawLine(Action):
     def perform(self, picture):
 
         if(self.r1 == self.r2):
-            start = (min(self.c1, self.c2), self.r1)
+            start = (self.r1, min(self.c1, self.c2))
             for i in range( abs(self.c1 - self.c2) ):
-                picture.setCell(start[0] + i, start[1], True)
+                picture.setCell(start[0], start[1] + i, True)
 
 
         elif(self.c1 == self.c2):
-            start = (self.c1, min(self.r1, self.r2))
+            start = (min(self.r1, self.r2), self.c1)
             for i in range( abs(self.r1 - self.r2) ):
-                picture.setCell(start[0], start[1] + i, True)
+                picture.setCell(start[0] + i, start[1], True)
 
         else:
             raise Exception("coordinates mismatch")
